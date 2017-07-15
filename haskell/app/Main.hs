@@ -12,7 +12,7 @@ main :: IO ()
 main = do
   app <- Gtk.applicationNew (Just "com.example.hello") []
 
-  Gio.onApplicationActivate app (onActivate app)
+  on app #activate (onActivate app)
 
   args <- getArgs
   void $ #run app (Just $ T.pack <$> args)
